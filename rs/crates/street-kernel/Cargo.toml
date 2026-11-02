@@ -1,0 +1,14 @@
+[package]
+name = "street-kernel"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Usermode client for StreetKernel.sys (physical VA read, events)"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows.workspace = true

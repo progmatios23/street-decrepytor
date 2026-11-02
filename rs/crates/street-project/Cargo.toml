@@ -1,0 +1,12 @@
+[package]
+name = "street-project"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Git-friendly JSON project: names, comments, links, confidence"
+
+[dependencies]
+street-core = { path = "../street-core" }
+street-links = { path = "../street-links" }
+serde.workspace = true
+serde_json.workspace = true

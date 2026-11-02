@@ -1,0 +1,34 @@
+[package]
+name = "street-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "street — one-process debugger, C motor, MCP, kernel, auto-links"
+
+[[bin]]
+name = "street"
+path = "src/main.rs"
+
+[dependencies]
+street-core = { path = "../street-core" }
+street-disasm = { path = "../street-disasm" }
+street-lift = { path = "../street-lift" }
+street-decompile = { path = "../street-decompile" }
+street-crypto = { path = "../street-crypto" }
+street-ir = { path = "../street-ir" }
+street-links = { path = "../street-links" }
+street-kernel = { path = "../street-kernel" }
+street-debug = { path = "../street-debug" }
+street-project = { path = "../street-project" }
+street-mcp = { path = "../street-mcp" }
+street-session = { path = "../street-session" }
+street-x64dbg = { path = "../street-x64dbg" }
+clap.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+ratatui.workspace = true
+crossterm.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows.workspace = true

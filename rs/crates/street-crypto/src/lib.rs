@@ -1,0 +1,23 @@
+pub mod carve;
+pub mod detect;
+pub mod engine;
+pub mod protect;
+pub mod secrets;
+pub mod solve;
+pub mod ac_harvest;
+pub mod ida_strings;
+pub mod strings;
+pub mod stub;
+pub mod xor;
+
+pub use ac_harvest::{harvest_ac_surface, AcHit, AcSurface};
+pub use carve::{carve_embedded_pe, CarvedPe};
+pub use detect::{detect_systems, CryptoHit, CryptoRanking};
+pub use engine::{run_static, run_static_bytes, write_report, CryptoReport, ResidualFinding};
+pub use ida_strings::{build_ida_strings, format_ida_listing, IdaString, IdaStringTable};
+pub use protect::{scan_protect, ProtectHit, ProtectSurface};
+pub use secrets::{scan_secrets, SecretHit, SecretReport};
+pub use solve::{auto_solve, probe_residual, ResidualProbe, SolvedHit};
+pub use stub::{decrypt_region, extract_dw_ops, DwOp, StubLayout};
+pub use xor::{decrypt_blob, xor_repeat, DecryptHit};
+pub use strings::{deobfuscate_strings, RecoveredString, StringReport};

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "street-decrepytor"
+version = "0.5.0"
+description = "Classify, extract, dump, and report framework (CLI-first). Does not decrypt commercial packers."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pefile>=2023.2.7",
+  "capstone>=5.0.1",
+  "click>=8.1.7",
+  "rich>=13.7.0",
+  "pyelftools>=0.31",
+]
+
+[project.optional-dependencies]
+dotnet = ["dnfile>=0.14.1"]
+frida = ["frida>=16.0.0", "frida-tools>=12.0.0"]
+emu = ["unicorn>=2.0.1"]
+
+[project.scripts]
+street-decrepytor = "street_decrepytor.cli.main:main"
+sdc = "street_decrepytor.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["street_decrepytor*"]

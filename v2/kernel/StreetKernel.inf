@@ -1,0 +1,52 @@
+; StreetKernel.inf — Driver Installation Descriptor
+; Target: Windows 11 x64 (Test signing enabled for dev; production needs EV cert)
+;
+; To install (test mode):
+;   bcdedit /set testsigning on   (reboot)
+;   devcon install StreetKernel.inf Root\StreetKernel
+;   OR: sc create StreetKernel type= kernel start= demand binPath= C:\path\StreetKernel.sys
+;       sc start StreetKernel
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %Provider%
+DriverVer   = 09/16/2026, 2.0.0.0
+CatalogFile = StreetKernel.cat
+
+[DestinationDirs]
+DefaultDestDir = 12  ; System32\drivers
+
+[SourceDisksNames]
+1 = %DiskName%,,,
+
+[SourceDisksFiles]
+StreetKernel.sys = 1
+
+[Manufacturer]
+%Provider% = Standard,NTamd64
+
+[Standard.NTamd64]
+%DeviceDesc% = StreetKernel_Device, Root\StreetKernel
+
+[StreetKernel_Device.NT]
+CopyFiles = StreetKernel.CopyFiles
+
+[StreetKernel.CopyFiles]
+StreetKernel.sys
+
+[StreetKernel_Device.NT.Services]
+AddService = StreetKernel, 0x00000002, StreetKernel_Service
+
+[StreetKernel_Service]
+DisplayName    = "Street-Decryptor Kernel Monitor"
+ServiceType    = 1   ; SERVICE_KERNEL_DRIVER
+StartType      = 3   ; SERVICE_DEMAND_START
+ErrorControl   = 1
+ServiceBinary  = %12%\StreetKernel.sys
+
+[Strings]
+Provider   = "Street-Decryptor"
+DiskName   = "Street-Decryptor Driver Disk"
+DeviceDesc = "StreetKernel Monitor Driver"

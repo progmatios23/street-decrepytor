@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0"
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- ── Project configurations ──────────────────────────────────── -->
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+
+  <!-- ── Globals ──────────────────────────────────────────────────── -->
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A3F21C2E-7B4D-4E9A-B6C1-D8F3A092E4B7}</ProjectGuid>
+    <TemplateGuid>{A3F21C2E-7B4D-4E9A-B6C1-D8F3A092E4B7}</TemplateGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+    <RootNamespace>StreetKernel</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <!-- WDK kernel driver project type -->
+    <ProjectName>StreetKernel</ProjectName>
+  </PropertyGroup>
+
+  <!-- WDK driver project type — must import before Microsoft.Cpp.Default.props -->
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+
+  <!-- ── Per-config base settings ────────────────────────────────── -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <TargetVersion>Windows10</TargetVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>WDM</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <TargetVersion>Windows10</TargetVersion>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"
+            Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')"
+            Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"
+            Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')"
+            Label="LocalAppDataPlatform" />
+  </ImportGroup>
+
+  <!-- ── Output / intermediate directories ───────────────────────── -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Configuration)\obj\</IntDir>
+    <TargetName>StreetKernel</TargetName>
+    <TargetExt>.sys</TargetExt>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Configuration)\obj\</IntDir>
+    <TargetName>StreetKernel</TargetName>
+    <TargetExt>.sys</TargetExt>
+  </PropertyGroup>
+
+  <!-- ── Compiler options  (Release) ─────────────────────────────── -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <!-- C11 for .c files, C++20 for .cpp files (set per-file below) -->
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_AMD64_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DisableSpecificWarnings>4100;4201;4214;4204</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(KernelModeIncludes);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Native</SubSystem>
+      <StackSize>0x40000</StackSize>
+      <AdditionalDependencies>
+        ntoskrnl.lib;hal.lib;wdm.lib;
+        Fwpkclnt.lib;Ndis.lib;aux_klib.lib;
+        BufferOverflowFastFailK.lib;
+        %(AdditionalDependencies)
+      </AdditionalDependencies>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <Inf>
+      <TimeStamp>09/16/2026 00:00:00</TimeStamp>
+    </Inf>
+  </ItemDefinitionGroup>
+
+  <!-- ── Compiler options  (Debug) ────────────────────────────────── -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>DBG;_AMD64_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DisableSpecificWarnings>4100;4201;4214;4204</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(KernelModeIncludes);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Native</SubSystem>
+      <AdditionalDependencies>
+        ntoskrnl.lib;hal.lib;wdm.lib;
+        Fwpkclnt.lib;Ndis.lib;aux_klib.lib;
+        BufferOverflowFastFailK.lib;
+        %(AdditionalDependencies)
+      </AdditionalDependencies>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <!-- ── Source files ─────────────────────────────────────────────── -->
+  <ItemGroup>
+    <ClCompile Include="StreetKernel.c">
+      <!-- C file: force C11 language -->
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Default</LanguageStandard>
+    </ClCompile>
+    <ClCompile Include="piddb_clear.cpp">
+      <!-- C++20 for the standalone helper -->
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+  </ItemGroup>
+
+  <!-- ── INF (signs the driver catalog) ──────────────────────────── -->
+  <ItemGroup>
+    <Inf Include="StreetKernel.inf">
+      <OutputDirectory>$(OutDir)</OutputDirectory>
+    </Inf>
+  </ItemGroup>
+
+  <!-- ── No MFC / ATL ─────────────────────────────────────────────── -->
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\Microsoft.Vc.targets"
+            Condition="exists('$(VCTargetsPath)\Microsoft.Vc.targets')" />
+  </ImportGroup>
+
+</Project>

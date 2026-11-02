@@ -1,0 +1,21 @@
+[package]
+name = "street-session"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "IDA-like session: modules/DLLs separated, encryption flows, entry emu, pseudocode"
+
+[dependencies]
+street-core = { path = "../street-core" }
+street-disasm = { path = "../street-disasm" }
+street-lift = { path = "../street-lift" }
+street-ir = { path = "../street-ir" }
+street-crypto = { path = "../street-crypto" }
+street-links = { path = "../street-links" }
+street-decompile = { path = "../street-decompile" }
+iced-x86.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true

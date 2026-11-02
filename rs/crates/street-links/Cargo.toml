@@ -1,0 +1,13 @@
+[package]
+name = "street-links"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Automatic link identification: URL, host, import, xref, data"
+
+[dependencies]
+street-core = { path = "../street-core" }
+street-disasm = { path = "../street-disasm" }
+serde.workspace = true
+serde_json.workspace = true
+regex = "1"

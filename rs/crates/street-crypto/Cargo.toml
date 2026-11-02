@@ -1,0 +1,16 @@
+[package]
+name = "street-crypto"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Honest cipher transforms: XOR harvest, dword-stub invert"
+
+[dependencies]
+street-core = { path = "../street-core" }
+street-disasm = { path = "../street-disasm" }
+iced-x86.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+flate2 = "1"
+hex.workspace = true
+regex = "1"

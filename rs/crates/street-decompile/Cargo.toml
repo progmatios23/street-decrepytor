@@ -1,0 +1,14 @@
+[package]
+name = "street-decompile"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Multi-backend decompiler registry: native, ghidra-json, ida, binja, x64dbg"
+
+[dependencies]
+street-core = { path = "../street-core" }
+street-disasm = { path = "../street-disasm" }
+street-lift = { path = "../street-lift" }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true

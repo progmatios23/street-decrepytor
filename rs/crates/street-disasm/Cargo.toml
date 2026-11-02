@@ -1,0 +1,12 @@
+[package]
+name = "street-disasm"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Multi-arch disassembly, function recovery, CFG, xrefs"
+
+[dependencies]
+street-core = { path = "../street-core" }
+iced-x86.workspace = true
+serde.workspace = true
+serde_json.workspace = true

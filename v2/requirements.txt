@@ -1,0 +1,5 @@
+pefile>=2023.2.7
+capstone>=5.0.1
+click>=8.1.7
+rich>=13.7.0
+unicorn>=2.0.1

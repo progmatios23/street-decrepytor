@@ -1,0 +1,17 @@
+[package]
+name = "street-debug"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "In-process Windows debugger (DEBUG_PROCESS) — x64dbg-class host"
+
+[dependencies]
+street-core = { path = "../street-core" }
+street-disasm = { path = "../street-disasm" }
+street-kernel = { path = "../street-kernel" }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows.workspace = true

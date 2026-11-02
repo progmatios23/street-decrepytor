@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "street-decrepytor-v2"
+version = "2.2.0"
+description = "Street-decrepytor v2 — live IDA-like analysis, entropy map, crypto-system reports, Unicorn emu"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pefile>=2023.2.7",
+  "capstone>=5.0.1",
+  "click>=8.1.7",
+  "rich>=13.7.0",
+  "unicorn>=2.0.1",
+]
+
+[project.scripts]
+street-v2 = "street_v2.cli:main"
+sdc2 = "street_v2.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["street_v2*"]

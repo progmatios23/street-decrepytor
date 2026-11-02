@@ -1,0 +1,23 @@
+[package]
+name = "street-mcp"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "MCP stdio server — bounded evidence packets, token-first tools"
+
+[[bin]]
+name = "street-mcp"
+path = "src/bin/street-mcp.rs"
+
+[dependencies]
+street-core = { path = "../street-core" }
+street-disasm = { path = "../street-disasm" }
+street-lift = { path = "../street-lift" }
+street-decompile = { path = "../street-decompile" }
+street-crypto = { path = "../street-crypto" }
+street-links = { path = "../street-links" }
+street-ir = { path = "../street-ir" }
+street-kernel = { path = "../street-kernel" }
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
