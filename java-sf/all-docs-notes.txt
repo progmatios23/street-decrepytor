@@ -1,0 +1,481 @@
+its a project tool -decryptor jar. the name is SFsociety-decryptor
+
+
+The best eng-reversing jar, loaders give me all sources
+用户想了解Java字节码工程和逆向工程方面最好的工具。我需要提供一份全面的列表，涵盖类库、加载器和源代码获取工具。为了全面获取信息，我将同时进行多项搜索，涵盖中文和英文资源，以及不同的关键词组合。
+
+Found 47 web pages
+搜索结果显示了许多相关的工具。为了全面回答用户的问题，我需要同时打开这些相关的链接以获取详细信息。
+
+Read 8 pages
+GitHub - meiMingle/bytecode-viewer: A Java 8+ Jar & Android APK Reverse Engineering Suite (Decompiler, Editor, Debugger & More) · GitHub - GitHub - meiMingle/bytecode-viewer: A Java 8+ Jar & Android APK Reverse Engineering Suite (Decompiler, Editor, Debugger & More) ...
+JEB Pro v5.29 发布 - 逆向工程平台 - JEB Pro v5.29 发布 - 逆向工程平台
+GitHub - katana-project/slicer: A modern Java reverse engineering tool for the web. · GitHub - GitHub - katana-project/slicer: A modern Java reverse engineering tool for the web. · GitHub
+GitHub - kitsune-de/jvm-inspector: JVM-aware x64dbg plugin - class browser, decompiler, native analyzer, method patcher, field monitor · GitHub - GitHub - kitsune-de/jvm-inspector: JVM-aware x64dbg plugin - class browser, decompiler, native analyzer, method patcher, field m...
+GitHub - 0WhiteDev/Java-Process-Inspector: Java reverse-engineering toolkit for inspecting, decompiling, analyzing, and modifying running JVM applications in real time · GitHub - For runtime coverage, click **Start block trace** , perform the relevant action in the target application, and watch the graph u...
+View All
+这些结果提供了许多工具。我的回答将涵盖综合逆向套件、反编译器、字节码编辑器、类库/框架、运行时/JVM级工具、在线工具等方面。我还会提到类加载器。回答将采用中文，并引用这些来源。现在开始组织回答。
+
+针对Java字节码工程和逆向工程，这里整理了一份主流工具清单，并按功能进行了分类，方便你根据需求选用。
+
+🔎 全能逆向套件 (瑞士军刀)
+这类工具功能全面，集成了反编译、编辑、调试等多种功能，是进行Java逆向分析的利器。
+
+Bytecode Viewer (BCV)：一款广受欢迎的开源图形化工具。
+
+核心功能：集成6种反编译器（如CFR, Procyon, FernFlower, JD-GUI等）、3种反汇编器、2种汇编器及APK转换器。支持JAR、APK、CLASS等多种文件格式。
+
+特色：内置Java编译器，可修改后回编译；支持插件系统；具备恶意代码扫描API。
+
+Recaf：另一款功能强大的JVM逆向工程工具包，专注于字节码的检查与修改。
+
+JByteMod-Remastered：现代化的Java字节码编辑器。
+
+核心功能：支持字节码编辑、反编译、重编译。提供图形化的字节码查看器和控制流图（Control Flow Diagram）。支持JAR、APK和CLASS文件。
+
+特色：拥有常量池编辑器（Constant Pool Editor）和插件系统。
+
+🔧 专业反编译器 (将字节码转换为Java源码)
+当需要高质量地将class文件还原为可读的Java源代码时，这些工具是首选。
+
+JD-GUI：经典的图形化反编译器。它是独立的图形界面程序，支持浏览整个JAR文件并跳转源码。
+
+CFR：一款优秀的命令行反编译器，以处理现代Java特性（如lambda表达式）而闻名。
+
+FernFlower：由JetBrains开发，是IntelliJ IDEA内置的反编译器，同样支持命令行使用。
+
+Procyon：Twitter开源的反编译器，也是一套Java元编程工具集。
+
+JADX：强大的DEX到Java的反编译器，尤其适用于Android APK分析。
+
+命令行工具：JDK自带的javap命令可以查看类的字节码信息。
+
+✍️ 字节码编辑器与操作库 (直接修改字节码)
+如果需要进行底层操作，比如直接编辑字节码指令或动态生成类，可以使用这些库和工具。
+
+ASM：业界标准的Java字节码操作与分析框架。可用于直接以二进制形式修改现有类或动态生成类。
+
+BCEL (Byte Code Engineering Library)：另一个经典的字节码工程库，提供了分析、创建和操作Java类文件（.class）的便捷方式。
+
+Javassist：提供更高级别的API，允许你通过源代码级别（Source-level）的方式来操作字节码，对开发者更友好。
+
+🚀 运行时与JVM级工具 (动态分析与调试)
+这类工具用于分析正在运行的Java程序，实现动态调试、监控和方法钩子等。
+
+Java Process Inspector：一个实时JVM分析工具包。
+
+核心功能：支持实时检查、反编译、分析和修改运行中的JVM应用。
+
+特色：具备强大的反混淆工作区（Deobfuscation workspace），可创建本地命名映射来帮助理解混淆代码。支持导出Tiny v2, ProGuard等多种映射格式。
+
+JVM Inspector：一款x64dbg调试器插件，使x64dbg能够感知JVM。
+
+核心功能：提供类浏览器、字节码反编译器、对象检查器、线程栈查看等。
+
+特色：强大的Hacking工具包，支持设置Java方法断点、内存补丁、字段值冻结（类似Cheat Engine）、内存和字符串扫描。特别地，它包含对Minecraft的专用分析功能。
+
+🌐 在线工具 (无需安装)
+Slicer：一款现代的Java逆向工程Web工具。它完全在浏览器中运行，无需下载安装。支持CFR, Procyon等反编译器和反汇编器，并提供控制流图（CFG）可视化。适合快速查看类文件。
+
+📚 类库与框架 (二次开发)
+Kapteyn：一个用于逆向工程Java类文件和JAR的库。它包含一个精确的类文件解析器和现代化的字节码反编译器。
+
+💎 总结与选择建议
+全能型选手：首选 Bytecode Viewer (BCV)或 Recaf。它们集成了多种反编译器，功能强大，能满足绝大多数逆向需求。
+
+高质量反编译：如果需要将字节码还原为最清晰、准确的源码，可以单独使用 CFR、FernFlower 或 Procyon 等专业反编译器。JD-GUI 则提供了便捷的图形化操作。
+
+动态分析与调试：当需要分析、修改正在运行的Java程序时，Java Process Inspector 和 JVM Inspector 这类运行时工具是绝佳选择。
+
+底层字节码操作：如果是进行底层开发，如创建新的编程工具或进行复杂的字节码增强，ASM 和 BCEL 这类库是基础。
+
+快速查看：只是想快速查看一个类文件的内容，无需安装任何东西，直接使用在线工具 Slicer 即可。
+
+关于你提到的“loaders”，上述工具中：
+
+Bytecode Viewer (BCV) 和 Recaf 等工具本身即可加载并分析JAR/CLASS文件。
+
+Java Process Inspector 和 JVM Inspector 可以attach到运行中的JVM进程，分析其已加载的类。
+
+如果你需要编程式地实现类加载，ASM 和 BCEL 等字节码操作库可以帮助你解析和修改字节码，然后通过自定义的ClassLoader进行加载。
+
+portugues retry
+分析用户的请求：
+
+之前的对话：用户问的是“最好的工程逆向JAR，加载器给我所有源码”，我给出了一个非常全面的英文Java字节码逆向工程工具列表，按类别（全能、反编译器、编辑器、运行时、在线、库）和总结/推荐进行了分类。
+
+当前用户的输入：“portugues retry”（葡萄牙语 重试）。
+
+意图：用户要求用葡萄牙语翻译/重写之前的回答。
+
+确定目标语言：巴西葡萄牙语（或通用葡萄牙语）。我将使用正式、清晰、技术性的葡萄牙语，适合软件开发/逆向工程受众。
+
+回顾之前的回答结构：
+
+引言（全面工具列表）。
+
+类别1：全能套装（Bytecode Viewer, Recaf, JByteMod）。
+
+类别2：专业反编译器（JD-GUI, CFR, FernFlower, Procyon, JADX, javap）。
+
+类别3：字节码编辑器与库（ASM, BCEL, Javassist）。
+
+类别4：运行时/JVM工具（Java Process Inspector, JVM Inspector）。
+
+类别5：在线工具（Slicer）。
+
+类别6：库/框架（Kapteyn）。
+
+总结/选择建议（何时使用哪个）。
+
+起草葡萄牙语翻译/改编：
+
+调整语气，使其具有帮助性和权威性。
+
+确保技术术语翻译准确（例如，“bytecode” = “bytecode”或“código de bytes”，通常“bytecode”更常用；“reverse engineering” = “engenharia reversa”；“loader” = “carregador”/“classloader”，但就上下文而言，我提到了工具加载JAR或附加到JVM）。
+
+起草时的自我修正：确保我不遗漏任何要点。结构保持一致。
+
+让我们逐部分翻译：
+
+标题： Ferramentas essenciais para engenharia reversa de JARs e bytecode Java.
+
+引言： Lista abrangente de ferramentas classificadas por função.
+
+类别1 - Suítes completas： Bytecode Viewer (BCV) - integra 6 descompiladores, CFR, Procyon, FernFlower, JD-GUI, suporte a JAR/APK/CLASS. Recaf - inspeção e modificação. JByteMod-Remastered - editor gráfico com diagrama de fluxo de controle e editor de pool de constantes.
+
+类别2 - Descompiladores dedicados： JD-GUI (GUI), CFR (linha de comando, ótimo para lambdas), FernFlower (embutido no IntelliJ), Procyon (Twitter), JADX (para APK). Mencionar javap do JDK.
+
+类别3 - Editores e bibliotecas de bytecode： ASM (framework padrão), BCEL (biblioteca clássica), Javassist (API de alto nível, nível de código-fonte).
+
+类别4 - Ferramentas em tempo de execução： Java Process Inspector (inspeção ao vivo, espaço de trabalho de desofuscação, exportação de mapeamentos). JVM Inspector (plugin x64dbg, breakpoints, patch de memória, congelamento de valores, análise do Minecraft).
+
+类别5 - Online： Slicer (roda no navegador, CFG, CFR/Procyon).
+
+类别6 - Bibliotecas para dev： Kapteyn (parser preciso).
+
+Resumo/Recomendação：
+
+Tudo-em-um: BCV ou Recaf.
+
+Descompilação de qualidade: CFR, FernFlower ou Procyon. JD-GUI para GUI.
+
+Análise dinâmica: Java Process Inspector ou JVM Inspector.
+
+Operação de baixo nível: ASM ou BCEL.
+
+Visualização rápida: Slicer online.
+
+Sobre "loaders": Explicar que BCV/Recaf carregam arquivos; JPI/JVMI anexam a processos em execução; ASM/BCEL permitem criar ClassLoaders personalizados programaticamente.
+
+起草并完善葡萄牙语文本。检查流畅性和准确性。
+“Ferramentas essenciais para engenharia reversa de JARs e bytecode Java.”
+...
+确保“retry”意味着完整的重写，所以我将提供完整的葡萄牙语回复。
+
+Aqui está a lista completa e detalhada das melhores ferramentas para engenharia reversa de arquivos JAR, CLASS e até APK, com foco em descompiladores, editores de bytecode, carregadores (loaders) e ferramentas de análise em tempo de execução, tudo traduzido para o português.
+
+🔎 Suítes Completas (Canivetes Suíços)
+Estas ferramentas reúnem descompiladores, editores e depuradores em uma única interface.
+
+Bytecode Viewer (BCV) – Uma das ferramentas open-source mais populares.
+
+Funcionalidades: Integra 6 descompiladores (CFR, Procyon, FernFlower, JD-GUI, etc.), 2 desmontadores e 2 montadores. Suporta JAR, APK, CLASS e até DEX.
+
+Diferenciais: Possui compilador Java embutido (edite e recompile na hora), sistema de plugins e scanner de vulnerabilidades/malware.
+
+Recaf – Outra ferramenta moderna e poderosa focada na inspeção e modificação de bytecode JVM. Possui interface intuitiva e suporte a plugins.
+
+JByteMod-Remastered – Editor gráfico de bytecode moderno.
+
+Funcionalidades: Visualização de bytecode, gráfico de fluxo de controle (CFG) e editor do Pool de Constantes (Constant Pool).
+
+Diferenciais: Permite editar, recompilar e salvar as alterações diretamente no JAR.
+
+🔧 Descompiladores Dedicados (Bytecode → Código Fonte)
+Use estas ferramentas quando precisar da melhor qualidade possível de código Java reverso.
+
+JD-GUI – O clássico descompilador gráfico. Perfeito para navegar por pacotes e classes dentro de um JAR com um clique.
+
+CFR – Descompilador de linha de comando altamente recomendado. Lida excepcionalmente bem com código moderno (lambdas, expressões em switch, etc.).
+
+FernFlower – Descompilador da JetBrains (usado internamente pelo IntelliJ IDEA). Também funciona via linha de comando.
+
+Procyon – Descompilador open-source do Twitter, parte de um conjunto maior de ferramentas de metaprogramação.
+
+JADX – Focado em Android, descompila arquivos DEX para Java, mas também funciona muito bem com JARs que contenham código Android.
+
+Dica de linha de comando: O próprio JDK vem com o javap -c -v NomeDaClasse.class para visualizar o bytecode bruto (sem descompilar para Java).
+
+✍️ Editores de Bytecode e Bibliotecas de Manipulação
+Para modificar a lógica em baixo nível (instruções invokevirtual, goto, etc.) ou gerar classes dinamicamente.
+
+ASM – O framework padrão da indústria para manipulação de bytecode Java. Permite ler, modificar e gerar arquivos .class no nível binário. É a base de muitas ferramentas de instrumentação.
+
+BCEL (Byte Code Engineering Library) – Biblioteca clássica da Apache para análise e criação de bytecode. Oferece uma API estruturada para manipular classes.
+
+Javassist – Oferece uma API de alto nível que permite modificar o bytecode usando código fonte (ex: CtClass e CtMethod), sendo muito mais amigável para iniciantes.
+
+🚀 Ferramentas de Tempo de Execução (JVM ao Vivo)
+Perfeitas para análise dinâmica, hooking de métodos e depuração de aplicações rodando.
+
+Java Process Inspector – Um toolkit completo para análise de JVMs em tempo real.
+
+Funcionalidades: Inspeção, descompilação e modificação de aplicações em execução.
+
+Diferencial: Possui um espaço de trabalho de desofuscação (Deobfuscation Workspace) que permite criar mapeamentos de nomes (ex: a.b.c → minhaClasse) e exportar nos formatos Tiny v2, ProGuard, etc.
+
+JVM Inspector – Plugin para o depurador nativo x64dbg, que adiciona consciência sobre a JVM.
+
+Funcionalidades: Navegador de classes, descompilador de bytecode, inspetor de objetos e pilhas de threads.
+
+Diferencial: Kit de ferramentas de hacking com suporte a breakpoints em métodos Java, patching de memória, congelamento de valores de campos (similar ao Cheat Engine) e análise dedicada para jogos (ex: Minecraft).
+
+🌐 Ferramentas Online (Sem instalação)
+Slicer – Ferramenta web moderna de engenharia reversa Java. Roda inteiramente no navegador. Suporta os descompiladores CFR e Procyon, além de exibir gráficos de fluxo de controle (CFG). Ótimo para uma análise rápida.
+
+📚 Bibliotecas para Desenvolvimento Próprio
+Se você quer criar seu próprio loader ou ferramenta de análise:
+
+Kapteyn – Biblioteca moderna para parsing preciso de arquivos .class e descompilação de bytecode. Ideal para quem quer construir ferramentas customizadas.
+
+💎 Resumo e Recomendações (Como escolher)
+Seu objetivo	Ferramenta recomendada
+Tudo-em-um (grátis e completo)	Bytecode Viewer (BCV) ou Recaf
+Melhor descompilação para Java moderno	CFR (linha de comando) ou FernFlower
+Navegação gráfica rápida	JD-GUI
+Análise/Modificação de app rodando	Java Process Inspector ou JVM Inspector
+Edição de bytecode em baixo nível	JByteMod-Remastered (GUI) ou ASM (código)
+Modificação via código-fonte (alto nível)	Javassist
+Visualização rápida sem baixar nada	Slicer (online)
+📦 Sobre os "Loaders" (Carregadores) que você mencionou:
+Se você quer carregar e analisar um JAR parado no disco: BCV, Recaf e JD-GUI fazem isso nativamente.
+
+Se você quer anexar (attach) a um programa que já está rodando: use Java Process Inspector ou JVM Inspector para inspecionar as classes já carregadas pela JVM.
+
+Se você quer criar seu próprio ClassLoader programático para carregar bytecodes modificados: utilize as bibliotecas ASM ou BCEL para transformar o array de bytes e depois defina um ClassLoader customizado no seu código Java.
+
+Se precisar de exemplos práticos de código ou tutoriais sobre alguma dessas ferramentas específicas, é só me avisar!
+
+somente deobfuscadores de padrao de java criando uma tool para isso e scanneando de projeto de github
+O usuário quer uma lista de desofuscadores para Java, com foco em criar uma ferramenta e escanear projetos no GitHub. Preciso fornecer uma lista de ferramentas e bibliotecas. Vou pesquisar em português e inglês.
+
+Found 37 web pages
+Os resultados da busca incluem várias ferramentas. Preciso organizar uma lista com descrições e links. Vou abrir alguns repositórios para obter mais detalhes.
+
+Read 8 pages
+GitHub - Stanislav-Povolotsky/jddlab: Java decompilation & deobfuscation lab - dockerized toolset · GitHub - GitHub - Stanislav-Povolotsky/jddlab: Java decompilation & deobfuscation lab - dockerized toolset · GitHub
+GitHub - Diobf/Deobfuscator: Some deobfuscator for java lol · GitHub - GitHub - Diobf/Deobfuscator: Some deobfuscator for java lol · GitHub
+GitHub - java-deobfuscator/deobfuscator: The real deal · GitHub - GitHub - java-deobfuscator/deobfuscator: The real deal · GitHub
+GitHub - katana-project/poke: A Java library for performing bytecode normalization and generic deobfuscation. · GitHub - GitHub - katana-project/poke: A Java library for performing bytecode normalization and generic deobfuscation. · GitHub
+FabricMC/Enigma
+View All
+Com base nos resultados, posso listar várias ferramentas. Vou organizar a resposta em categorias: suítes completas, descompiladores/remapeadores, bibliotecas para criação de ferramentas, e ferramentas para ofuscação nativa. Também mencionarei como escanear projetos no GitHub. A resposta será em português.
+
+Para criar sua própria ferramenta de desofuscação ou escanear projetos no GitHub, você pode começar explorando estes projetos, que vão desde soluções completas até bibliotecas especializadas.
+
+🛠️ Suítes Completas de Desofuscação
+java-deobfuscator/deobfuscator: Um projeto robusto que suporta diversos ofuscadores comerciais, como Zelix Klassmaster, Stringer, Allatori, DashO e DexGuard.
+
+Funcionalidades: Detecta automaticamente o ofuscador utilizado e oferece "transformers" para reverter técnicas como ofuscação de fluxo e criptografia de strings.
+
+Como usar: Possui versão com interface gráfica (GUI) e pode ser usado via linha de comando com arquivos de configuração YAML.
+
+Diobf/Deobfuscator (Diobfuscator): Um desofuscador em desenvolvimento ativo, focado em ser modular.
+
+Funcionalidades: Permite selecionar quais "transformers" (como os de ofuscação de string ou fluxo) aplicar ao arquivo JAR ofuscado.
+
+Como usar: Projetado para ser executado a partir de uma IDE (ex: IntelliJ), configurando o arquivo Bootstrap.java.
+
+threadtear (por loerting): Descrito como uma "suíte multifuncional de desofuscação Java", ideal para uma abordagem mais ampla.
+
+Recaf: Um editor de bytecode moderno que também oferece ferramentas para desofuscar e renomear automaticamente classes e membros ofuscados.
+
+Bytecode Viewer (BCV): Uma suíte avançada de engenharia reversa que, embora seja mais um descompilador, pode ser estendida com plugins para tarefas de desofuscação.
+
+🗺️ Descompiladores e Ferramentas de Remapeamento (Mapping)
+Enigma (FabricMC/Enigma): Ferramenta clássica de desofuscação e remapeamento para software Java, amplamente utilizada em projetos como o Minecraft.
+
+JavaDeobfuscator (Ikos3k): Outro projeto no GitHub focado em desofuscação Java.
+
+🧩 Bibliotecas para Construir sua Própria Ferramenta
+poke (katana-project/poke): Uma biblioteca Java (com CLI) que realiza normalização de bytecode e desofuscação genérica. Ela funciona como um "wrapper" em torno do núcleo do ProGuard, configurado especificamente para otimização.
+
+Mapping-IO: Uma biblioteca pequena e eficiente para trabalhar com arquivos de mapeamento de desofuscação, que pode ser útil se sua ferramenta precisar lidar com esse tipo de dado.
+
+⚙️ Para Ofuscadores Específicos (Ex: Native Obfuscation)
+c2j-native-deobfuscator: Uma ferramenta projetada para restaurar bytecode Java de binários protegidos por ofuscadores nativos como native-obfuscator (que transpila bytecode para C++).
+
+🔍 Como Escanear Projetos no GitHub
+Para encontrar ferramentas de desofuscação diretamente no GitHub, você pode usar as seguintes palavras-chave em suas buscas:
+
+"java deobfuscator"
+
+"java deobfuscation"
+
+"deobfuscator java"
+
+"java反混淆" (em chinês)
+
+Combinar os termos acima com "tool", "library" ou "framework".
+
+Uma busca com esses termos já retorna diversos projetos, como os mencionados acima.
+
+🚀 Próximos Passos para sua Ferramenta
+Defina o Escopo: Decida se sua ferramenta será um desofuscador geral (como o java-deobfuscator) ou se focará em um tipo específico de ofuscação.
+
+Escolha a Base:
+
+Para uma solução completa e testada, comece pelo java-deobfuscator/deobfuscator.
+
+Para um projeto mais modular e em desenvolvimento, explore o Diobf/Deobfuscator.
+
+Se quiser construir do zero, use a biblioteca poke para a lógica principal de normalização.
+
+Estude os Transformers: Analise como os "transformers" são implementados nos projetos existentes para entender como reverter ofuscações de string, fluxo, etc..
+
+Considere a Interface: Decida se sua ferramenta será CLI, GUI ou uma biblioteca. Projetos como o java-deobfuscator oferecem ambas as opções.
+
+Espero que esta lista detalhada te ajude a iniciar seu projeto! Se precisar de mais detalhes sobre alguma ferramenta específica, é só me avisar.
+
+me projetos de deobufuscaçoes de github
+O usuário está pedindo projetos de desofuscação no GitHub. Preciso fornecer uma lista de projetos. Vou pesquisar em português e inglês.
+
+Found 43 web pages
+Os resultados da pesquisa incluem vários projetos. Vou organizar uma lista com descrições e links. Também vou incluir alguns projetos adicionais que podem ser relevantes. Vou abrir alguns links para obter mais detalhes.
+
+Read 5 pages
+GitHub - java-deobfuscator/deobfuscator: The real deal · GitHub - GitHub - java-deobfuscator/deobfuscator: The real deal · GitHub
+GitHub - Diobf/Deobfuscator: Some deobfuscator for java lol · GitHub - GitHub - Diobf/Deobfuscator: Some deobfuscator for java lol · GitHub
+GitHub - Stanislav-Povolotsky/jddlab: Java decompilation & deobfuscation lab - dockerized toolset · GitHub - GitHub - Stanislav-Povolotsky/jddlab: Java decompilation & deobfuscation lab - dockerized toolset · GitHub
+GitHub - katana-project/poke: A Java library for performing bytecode normalization and generic deobfuscation. · GitHub - GitHub - katana-project/poke: A Java library for performing bytecode normalization and generic deobfuscation. · GitHub
+7 Best Deobfuscation and Unpacking GitHub Repos (2026)
+Vou organizar uma lista de projetos de desofuscação Java no GitHub. Incluirei o java-deobfuscator/deobfuscator, Diobf/Deobfuscator, threadtear, jddlab, poke, entre outros. Vou estruturar a resposta com uma introdução, listas de projetos (com descrições e links) e uma seção de dicas de busca.
+
+Aqui está uma lista com alguns dos principais projetos de desofuscação Java disponíveis no GitHub, organizados por tipo de abordagem.
+
+🛠️ Suítes Completas de Desofuscação
+Estes projetos são os mais abrangentes, com o objetivo de reverter a ofuscação de diversos ofuscadores comerciais e de código aberto.
+
+java-deobfuscator/deobfuscator: É o projeto mais conhecido e ativo, frequentemente chamado de "the real deal". Ele suporta ofuscadores comerciais como Zelix Klassmaster, Stringer, Allatori, DashO, DexGuard e outros.
+
+Funcionalidades: Oferece detecção automática do ofuscador utilizado e diversos "transformers" para reverter técnicas como ofuscação de string e reflexão.
+
+Como usar: Possui uma versão com interface gráfica (GUI) e pode ser usado via linha de comando com arquivos de configuração YAML.
+
+Diobf/Deobfuscator: Um desofuscador moderno e modular, também conhecido como Diobfuscator. Está em desenvolvimento ativo.
+
+Funcionalidades: Permite selecionar quais "transformers" aplicar ao arquivo JAR ofuscado.
+
+Como usar: Projetado para ser executado a partir de uma IDE (ex: IntelliJ), configurando o arquivo Bootstrap.java. Requer Java 17 para compilar e Java 8 para o sandbox.
+
+threadtear (por loerting): Uma "suíte multifuncional de desofuscação Java", ideal para uma abordagem mais ampla e combinada.
+
+🧩 Ferramentas Especializadas e Bibliotecas
+Projetos com um foco mais específico ou que servem como base para construir suas próprias ferramentas.
+
+katana-project/poke: Uma biblioteca Java (com CLI) que realiza normalização de bytecode e desofuscação genérica.
+
+Funcionalidades: Funciona como um "wrapper" em torno do núcleo do ProGuard, configurado especificamente para otimização, sem a necessidade de regras -keep.
+
+Como usar: Pode ser usada como biblioteca em seus próprios projetos ou via linha de comando com opções como --optimize e --inline.
+
+Stanislav-Povolotsky/jddlab: Um laboratório de descompilação e desofuscação Java empacotado em uma imagem Docker.
+
+Funcionalidades: Reúne todas as ferramentas necessárias em um ambiente isolado, minimizando riscos e simplificando a instalação.
+
+Como usar: Basta ter o Docker instalado e usar o comando jddlab para executar as ferramentas no container.
+
+GraxCode/threadtear: Uma suíte de ferramentas de engenharia reversa Java, com foco em desofuscação.
+
+🗺️ Ferramentas de Remapeamento (Mapping)
+Mapping-IO: Uma biblioteca pequena e eficiente para trabalhar com arquivos de mapeamento de desofuscação.
+
+Lorenz: Uma representação de mapeamentos de desofuscação para JVM.
+
+🔍 Como Encontrar Mais Projetos no GitHub
+Para descobrir outros projetos, você pode usar estas palavras-chave em suas buscas:
+
+java deobfuscator
+
+java deobfuscation
+
+deobfuscator java
+
+java反混淆 (em chinês)
+
+Combinar esses termos com tool, library ou framework também pode ajudar a refinar os resultados.
+
+Espero que esta lista detalhada te ajude a encontrar o projeto ideal para começar! Se precisar de mais detalhes sobre algum deles, é só me avisar.
+
+me de todos os links e tools de deobfuscação de jar e emulação
+O usuário quer uma lista completa de links e ferramentas para desofuscação de JAR e emulação. Precisamos fornecer uma lista abrangente. Vamos pesquisar em português e inglês.
+
+Found 50 web pages
+Os resultados da pesquisa forneceram muitas ferramentas. Precisamos organizar uma lista abrangente com links. Vamos abrir alguns resultados para obter mais detalhes.
+
+Read 6 pages
+GitHub - jar-analyzer/jar-analyzer: Jar Analyzer - 一个 JAR 包 GUI 分析工具，内置 AI 助手协助分析，支持 JAR DIFF 分析，方法调用关系搜索，方法调用链 DFS 算法分析，模拟 JVM 的污点分析验证 DFS 结果，字符串搜索，Java Web 组件入口分析，CFG 程序分析，JVM 栈帧分析，自定义表达式搜索等 · GitHub - GitHub - jar-analyzer/jar-analyzer: Jar Analyzer - 一个 JAR 包 GUI 分析工具，内置 AI 助手协助分析，支持 JAR DIFF 分析，方法调用关系搜索，方法调用链 DFS 算法分析，模拟 JVM ...
+GitHub topics: deobf - GitHub topics: deobf
+GitHub - Stanislav-Povolotsky/jddlab: Java decompilation & deobfuscation lab - dockerized toolset · GitHub - Simplify | Android VM-based deobfuscator
+c2j-native-deobfuscator/README.md at main · gaoyu06/c2j-native-deobfuscator - Skip to content
+GitHub - gaoyu06/c2j-native-deobfuscator: A deobfuscator for native-obfuscator and similar obfuscation tools, designed to restore Java bytecode from native-protected binaries. · GitHub - GitHub - gaoyu06/c2j-native-deobfuscator: A deobfuscator for native-obfuscator and similar obfuscation tools, designed to restor...
+View All
+Os resultados da pesquisa forneceram muitas ferramentas. Precisamos organizar uma lista abrangente com links. Vamos continuar pesquisando para obter mais ferramentas.
+
+Found 36 web pages
+Com base nos resultados das pesquisas, compilei uma lista abrangente de ferramentas de desofuscação e emulação. Vou organizá-la em categorias: suítes de desofuscação, ferramentas especializadas, ferramentas de emulação, bibliotecas, ferramentas para Android, e ferramentas para Minecraft. Fornecerei links e breves descrições.
+
+Abaixo está uma lista abrangente de ferramentas open-source no GitHub focadas em desofuscação de JARs e emulação, organizadas por função.
+
+🛠️ Suítes Completas de Desofuscação
+Ferramenta	Descrição	Link
+java-deobfuscator/deobfuscator	A mais completa e ativa. Suporta ofuscadores comerciais como Zelix Klassmaster, Stringer, Allatori, DashO, DexGuard, ClassGuard e outros. Possui detecção automática e diversos "transformers"	github.com/java-deobfuscator/deobfuscator
+deobfuscator-gui	Interface gráfica oficial para o deobfuscator acima	github.com/java-deobfuscator/deobfuscator-gui
+Diobf/Deobfuscator	Desofuscador moderno e modular (também chamado de Diobfuscator). Versão v2 em desenvolvimento ativo	github.com/Diobf/Deobfuscator
+threadtear	Suíte multifuncional de desofuscação Java	github.com/GraxCode/threadtear
+narumii/Deobfuscator	Desofuscador Java simples e funcional	github.com/narumii/Deobfuscator
+Ikos3k/JavaDeobfuscator	Desofuscador para ofuscadores Java comuns	github.com/Ikos3k/JavaDeobfuscator
+jddlab	Laboratório Dockerizado com todas as ferramentas de descompilação e desofuscação Java/Android em um container	github.com/Stanislav-Povolotsky/jddlab
+🔧 Ferramentas Especializadas
+Ferramenta	Descrição	Link
+jar-analyzer	GUI avançada com análise de JAR, suporte a AI, análise de chamadas de métodos com DFS, simulação JVM para análise de taint, CFG, análise de stack frame e muito mais	github.com/jar-analyzer/jar-analyzer
+MinecraftDecompiler	Desofusca e descompila Minecraft (ou qualquer JAR) usando mappings populares e diversos descompiladores	github.com/MaxPixelStudios/MinecraftDecompiler
+JAR-RE	Ferramenta especializada em desofuscação de JARs, com foco em OSRS (Old School RuneScape), mas aplicável a qualquer JAR	github.com/boriitoo/jar-re
+poke	Biblioteca Java (com CLI) para normalização de bytecode e desofuscação genérica, usando o núcleo do ProGuard otimizado	github.com/katana-project/poke
+MCMapper	Ferramenta de desofuscação para servidores Minecraft usando mappings oficiais da Mojang	github.com/Porama6400/MCMapper
+⚙️ Ferramentas de Emulação para Desofuscação
+Ferramenta	Descrição	Link
+c2j-native-deobfuscator	Desofusca JARs protegidos por ofuscadores nativos (native-obfuscator, j2cc) que transpilam bytecode Java para C++. Possui 3 caminhos de recuperação: Dinâmico (JVMTI), Estático (Ghidra) e Emulação (CPU emulator + mock JNI)	github.com/gaoyu06/c2j-native-deobfuscator
+simplify	Máquina virtual Android + desofuscador. Executa virtualmente um app para entender seu comportamento e otimizar o código, tornando-o mais legível	github.com/CalebFenton/simplify
+DalvikDeObf	Máquina virtual Android e desofuscador genérico	github.com/jyotidwi/DalvikDeObf
+android-deobf-simplify	Port do Simplify para Android	github.com/gmh5225/android-deobf-simplify
+🧩 Bibliotecas para Construir sua Própria Ferramenta
+Ferramenta	Descrição	Link
+Enigma	Ferramenta clássica de desofuscação/remapeamento para bytecode Java. Fork mantido pela QuiltMC	github.com/QuiltMC/enigma
+Mapping-IO	Biblioteca para trabalhar com arquivos de mapeamento de desofuscação	github.com/Mapping-IO/Mapping-IO
+ObfTools	Conjunto de ferramentas para manipulação de ofuscação	github.com/stianloader/ObfTools
+📱 Ferramentas para Android (APK/DEX)
+Ferramenta	Descrição	Link
+MayaCrack	Desofuscador de código Android com IA	github.com/Kaap10/MayaCrack
+deoptfuscator	Desofuscador para aplicações Android	github.com/Gyoonus/deoptfuscator
+jadx	Descompilador DEX → Java (essencial para Android)	github.com/skylot/jadx
+Apktool	Decodifica recursos de APK e permite debug de código smali	github.com/iBotPeaches/Apktool
+🎮 Ferramentas para Minecraft
+Ferramenta	Descrição	Link
+minecraft-java-decomp	API e CLI para descompilar e desofuscar versões do Minecraft Java Edition usando mappings da Mojang	github.com/extremeheat/minecraft-java-decomp
+🔍 Como Encontrar Mais Projetos
+
+java deobfuscator
+
+java deobfuscation
+
+deobfuscator jar
+
+android deobfuscator
+
+deobfuscation tool
+
+💡 Dica: A maioria das ferramentas pode ser executada com java -jar ferramenta.jar e muitas possuem GUIs ou suporte a arquivos de configuração YAML.
+
+Se precisar de mais detalhes sobre alguma ferramenta específica ou exemplos de uso, é só avisar!

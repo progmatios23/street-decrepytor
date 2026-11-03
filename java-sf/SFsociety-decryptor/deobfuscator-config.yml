@@ -1,0 +1,13 @@
+# java-deobfuscator (tools/deobfuscator.jar) + Temurin 21
+# D:\STREET-tool\tools\jdk\bin\java.exe -jar D:\STREET-tool\tools\deobfuscator.jar --config this
+
+input: D:\STREET-tool\target.jar
+output: D:\STREET-tool\out\target-deobf.jar
+
+# Simple/Enhanced string transformers need javavm + JDK8 rt.jar/jce.jar/jsse.jar.
+# Those paths do not exist on Temurin 21. Keep the static Zelix transformer only.
+transformers:
+  - com.javadeobfuscator.deobfuscator.transformers.zelix.StringEncryptionTransformer
+  - com.javadeobfuscator.deobfuscator.transformers.zelix.FlowObfuscationTransformer
+  - com.javadeobfuscator.deobfuscator.transformers.general.peephole.PeepholeOptimizer
+  - com.javadeobfuscator.deobfuscator.transformers.general.peephole.DeadCodeRemover

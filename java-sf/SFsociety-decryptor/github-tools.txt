@@ -1,0 +1,31 @@
+Cloned under D:\STREET-tool\github from all docs.txt
+Release JARs + Temurin 21 under D:\STREET-tool\tools (see tools\README.md)
+
+github: bytecode-viewer, c2j-native-deobfuscator, cfr, deobfuscator, deobfuscator-gui,
+  Diobf-Deobfuscator, enigma, jar-analyzer, Java-Process-Inspector, JavaDeobfuscator,
+  jddlab, jvm-inspector, narumii-Deobfuscator, ObfTools, poke, procyon, Recaf,
+  simplify, slicer, threadtear, vineflower
+
+tools: jdk21, deobfuscator.jar, BCV, CFR, Procyon, Vineflower, JD-GUI, threadtear,
+  Recaf4, JADX
+
+ZKM static decrypt: 109 strings -> out\target-deobf.jar + out\cfr-deobf\
+Natives table: linux .so + windows .dll + macos .dylib (XOR key CqbHnBrA...)
+
+java-deobfuscator/deobfuscator      github/deobfuscator
+java-deobfuscator/deobfuscator-gui  github/deobfuscator-gui
+GraxCode/threadtear                 github/threadtear
+katana-project/poke                 github/poke
+Ikos3k/JavaDeobfuscator             github/JavaDeobfuscator
+Stanislav-Povolotsky/jddlab         github/jddlab
+jar-analyzer/jar-analyzer           github/jar-analyzer
+gaoyu06/c2j-native-deobfuscator     github/c2j-native-deobfuscator
+QuiltMC/enigma                      github/enigma
+CalebFenton/simplify                github/simplify
+Diobf/Deobfuscator                  github/Diobf-Deobfuscator
+narumii/Deobfuscator                github/narumii-Deobfuscator
+Col-E/Recaf                         github/Recaf
+
+ZKM21 on this JAR: use deobfuscator + deobfuscator-config.yml on JDK 17+.
+Local JRE here is 1.8 and classes are major 65 (Java 21), so the loader cannot be executed in-place.
+The extracted linux .so is AWS-LC + JNI_OnLoad — leftover blob is AES-wrapped (native layer).

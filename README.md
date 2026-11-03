@@ -8,10 +8,13 @@ Repo: https://github.com/progmatios23/street-decrepytor
 
 ```
 street-decrepytor/
-├── v1/     Python pipeline (classify, dump RAM, recrack Potassium)
-├── v2/     entropy / harvest / Unicorn / StreetKernel.c stub
-└── rs/     native debugger + kernel RPM crate
+├── v1/        Python pipeline (classify, dump RAM, recrack Potassium)
+├── v2/        entropy / harvest / Unicorn / StreetKernel.c stub
+├── rs/        native debugger + kernel RPM crate
+└── java-sf/   SFsociety JAR/ZKM decrypt + Sydney 26.0 Fabric docs
 ```
+
+Java / Fabric: [java-sf/README.md](java-sf/README.md).
 
 No sample EXEs. No harvest blobs. No `rework/` dump.
 
